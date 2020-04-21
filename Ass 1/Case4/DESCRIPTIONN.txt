@@ -1,0 +1,88 @@
+Case 4:
+		What is the purpose and difference in public, private and protected access specifiers. Illustratea design example with this.
+
+
+
+-> Public:The access level of a public modifier is everywhere. It can be accessed from within the class, outside the class, within the package and outside the package.
+
+->Private: The access level of a private modifier is only within the class. It cannot be accessed from outside the class.
+
+->Protected: The access level of a protected modifier is within the package and outside the package through child class. If you do not make the child class, it cannot be accessed from outside the package.
+
+EXAMPLES:
+
+
+-> Simple Example of public access modifier
+
+//save by A.java  
+  
+package pack;  
+public class A{  
+public void msg(){System.out.println("Hello");}  
+}  
+--------------------------------
+//save by B.java  
+  
+package mypack;  
+import pack.*;  
+  
+class B{  
+  public static void main(String args[]){  
+   A obj = new A();  
+   obj.msg();  
+  }  
+}  
+
+
+
+-> Simple example of private access modifier
+
+In this example, we have created two classes A and Simple. A class contains private data member and private method. We are accessing these private members from outside the class, so there is a compile-time error.
+
+class A{  
+private int data=40;  
+private void msg(){System.out.println("Hello java");}  
+}    
+public class Simple{  
+ public static void main(String args[]){  
+   A obj=new A();  
+   System.out.println(obj.data);//Compile Time Error  
+   obj.msg();//Compile Time Error  
+   }  
+} 
+ 
+Role of Private Constructor:
+
+If you make any class constructor private, you cannot create the instance of that class from outside the class. 
+For example:
+
+class A{  
+private A(){}//private constructor  
+void msg(){System.out.println("Hello java");}  
+}  
+public class Simple{  
+ public static void main(String args[]){  
+ A obj=new A();//Compile Time Error   }  }  
+
+
+->Simple Example of protected access modifier:
+
+In this example, we have created the two packages pack and mypack. The A class of pack package is public, so can be accessed from outside the package. But msg method of this package is declared as protected, so it can be accessed from outside the class only through inheritance.
+
+//save by A.java  
+package pack;  
+public class A{  
+protected void msg(){System.out.println("Hello");}  
+}  
+----------------
+//save by B.java  
+package mypack;  
+import pack.*;
+-------------------------  
+  class B extends A{  
+  public static void main(String args[]){  
+   B obj = new B();  
+   obj.msg();  
+  }  
+}  
+
