@@ -10,8 +10,7 @@ import java.util.Scanner;
 public class Prob4 {
 	// Function to return a vector that contains  
     // all the generated letter combinations 
-    static ArrayList<String> letterCombinationsUtil(int[] number, int n,  
-                                                            String[] table) 
+    static ArrayList<String> letterCombinationsUtil(int[] number, int n, String[] table) 
     { 
             // To store the generated letter combinations 
             ArrayList<String> list = new ArrayList<>(); 
